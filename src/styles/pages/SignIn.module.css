@@ -1,0 +1,53 @@
+.signInContainer {
+  width: 100vw;
+  height: 100vh;
+
+  background: var(--blue);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+
+  color: var(--white);
+}
+
+.content aside {
+  height: 100vh;
+  width: 10vw;
+
+  display: flex;
+  align-items: center;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginForm > svg {
+  margin-bottom: 7rem;
+}
+
+.loginForm span {
+  font-size: 2.25rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.loginForm p {
+  font-size: 1.25rem;
+  line-height: 1.875rem;
+  color: var(--text-highlight);
+
+  margin-bottom: 2.5rem;
+}
+
+.icons {
+  width: 100%;
+  max-width: 120px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
