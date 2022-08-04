@@ -51,3 +51,25 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.icons button {
+  border: 0;
+  background: var(--blue);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--white);
+
+  height: 2.5rem;
+  width: 2.5rem;
+
+  border-radius: 2px;
+  
+  transition: filter 0.2s;
+}
+
+.icons button:hover {
+  filter: brightness(0.8);
+}

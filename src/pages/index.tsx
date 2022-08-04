@@ -16,7 +16,11 @@ export default function SigIn() {
             <p>Faça login com seu E-mail, GitHub ou Google para começar</p>
             <div className={styles.icons}>
               <Envelope size={30} />
-              <GithubLogo size={30} />
+
+              <button>
+                <GithubLogo size={30} />
+              </button>
+
               <GoogleLogo size={30} />
             </div>
           </div>
