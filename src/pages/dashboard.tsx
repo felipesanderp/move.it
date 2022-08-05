@@ -1,5 +1,5 @@
 import Head from "../../node_modules/next/head";
-import { getSession, signOut, useSession } from 'next-auth/react'
+import { getSession, signOut } from 'next-auth/react'
 import { GetServerSideProps } from '../../node_modules/next/types/index'
 
 import { ChallengeBox } from "../components/ChallengeBox";
