@@ -76,3 +76,18 @@
 .icons button:hover {
   background: var(--blue-dark);
 }
+
+@media(max-width: 1124px) {
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content aside {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
