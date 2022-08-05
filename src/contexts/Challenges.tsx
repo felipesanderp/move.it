@@ -5,7 +5,7 @@ import challenges from '../../challenges.json';
 import { LevelUpModal } from '../components/LevelUpModal';
 
 interface Challenge {
-  type: 'body' | 'eye';
+  type: string;
   description: string;
   amount: number;
 }
@@ -14,7 +14,7 @@ interface ChallengesContextData {
   level: number;
   currentExperience: number;
   challengesCompleted: number;
-  activeChallenge: Challenge;
+  activeChallenge: Challenge | null;
   experienceToNextLevel: number;
   startNewChallenge: () => void;
   levelUp: () => void;
@@ -37,7 +37,7 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
   const [currentExperience, setCurrentExperience] = useState(rest.currentExperience ?? 0);
   const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? 0);
 
-  const [activeChallenge, setActiveChallenge] = useState(null);
+  const [activeChallenge, setActiveChallenge] = useState<Challenge | null>(null);
   const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false);
 
   const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
@@ -65,7 +65,13 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
     const randomChallengeIndex = Math.floor(Math.random() * challenges.length);
     const challenge = challenges[randomChallengeIndex];
 
-    setActiveChallenge(challenge);
+    const { type, description, amount } = challenge;
+
+    setActiveChallenge({
+      type,
+      description,
+      amount,
+    });
 
     new Audio('/notification.mp3').play();
 
