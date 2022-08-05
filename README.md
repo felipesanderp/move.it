@@ -36,8 +36,17 @@
 Esse projeto foi desenvolvido durante a 4º edição da NLW(Next Level Week) da [Rocketseat](https://www.rocketseat.com.br/), com as seguintes tecnologias:
 
 - [Next.js](https://nextjs.org/)
-
+- [NextAuth.js](https://next-auth.js.org/)
+- [js-cookie](https://www.npmjs.com/package/js-cookie)
+- [Phosphor Icons](https://phosphoricons.com/)
+- [react-hot-toast](https://react-hot-toast.com/)
 - [VSCode](https://code.visualstudio.com/)
+
+## :sparkles: Features
+- [x] Login social com GitHub
+- [x] Sidebar responsiva
+- [ ] Sistema de ranking
+- [ ] Compartilhamento dos desafios completados via Twitter
 
 ## :information_source: Como usar
 
