@@ -7,7 +7,7 @@
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/felipesanderp/move.it.svg">
 
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/felipesanderp/move.it.svg">
-  
+    
    <a href="https://www.codefactor.io/repository/github/felipesanderp/move.it">
      <img src="https://www.codefactor.io/repository/github/felipesanderp/move.it/badge"  alt="CodeFactor" />
    </a>
@@ -36,19 +36,8 @@
 Esse projeto foi desenvolvido como parte do curso [**Ignite**](https://www.rocketseat.com.br/ignite) da Rocketseat, com as seguintes tecnologias:
 
 - [Next.js](https://nextjs.org/)
-- [Chakra UI](https://chakra-ui.com/)
-- [ApexCharts.js](https://apexcharts.com/)
-- [mirajeJS](https://miragejs.com/)
-- [axios](https://github.com/axios/axios)
-- [React Hook Form](https://react-hook-form.com/)
-- [React Icons](https://react-icons.github.io/react-icons/)
-- [yup](https://github.com/jquense/yup)
-- [VSCode](https://code.visualstudio.com/)
 
-## :sparkles: Features
-- [x] Cadastro de usuáario
-- [ ] Salvar usuários em uma base de dados
-- [ ] Login com usuário e senha
+- [VSCode](https://code.visualstudio.com/)
 
 ## :information_source: Como usar
 
@@ -57,10 +46,10 @@ Além disto é bom ter um editor para trabalhar com o código, como [VSCode](htt
 
 ```bash
 # Clone este repositório
-$ git clone https://github.com/felipesanderp/dashgo.git
+$ git clone https://github.com/felipesanderp/move.it.git
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd dashgo
+$ cd move.it
 
 # Instale as dependências
 $ yarn
