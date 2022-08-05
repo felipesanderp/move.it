@@ -8,10 +8,16 @@ import { Logo } from '../components/Logo';
 import styles from '../styles/pages/SignIn.module.css';
 
 export default function SignIn() {
-  function handleSignIn(event: FormEvent) {
+  function handleGithubSignIn(event: FormEvent) {
     event.preventDefault();
 
     signIn('github');
+  }
+
+  function handleGoogleSignIn(event: FormEvent) {
+    event.preventDefault();
+
+    signIn('google');
   }
 
   return (
@@ -27,11 +33,13 @@ export default function SignIn() {
             <div className={styles.icons}>
               <Envelope size={30} />
 
-              <button type="button" onClick={handleSignIn}>
+              <button type="button" onClick={handleGithubSignIn}>
                 <GithubLogo size={30} />
               </button>
 
-              <GoogleLogo size={30} />
+              <button type="button" onClick={handleGoogleSignIn}>
+                <GoogleLogo size={30} />
+              </button>
             </div>
           </div>
         </aside>
