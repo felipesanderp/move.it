@@ -11,7 +11,8 @@ const options: NextAuthOptions = {
   ],
   theme: {
     colorScheme: 'light'
-  }
+  },
+  secret: process.env.NEXTAUTH_SECRET,
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
