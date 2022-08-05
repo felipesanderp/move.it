@@ -33,7 +33,7 @@
 
 ## :rocket: Tecnologias
 
-Esse projeto foi desenvolvido como parte do curso [**Ignite**](https://www.rocketseat.com.br/ignite) da Rocketseat, com as seguintes tecnologias:
+Esse projeto foi desenvolvido durante a 4º edição da NLW(Next Level Week) da [Rocketseat](https://www.rocketseat.com.br/), com as seguintes tecnologias:
 
 - [Next.js](https://nextjs.org/)
 
