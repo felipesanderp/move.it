@@ -3,6 +3,7 @@ import { getSession, signIn, } from 'next-auth/react'
 
 import { Envelope, GithubLogo, GoogleLogo } from 'phosphor-react'
 import { FormEvent } from 'react';
+import { BackgroundCover } from '../components/BackgroundCover';
 import { Logo } from '../components/Logo';
 
 import styles from '../styles/pages/SignIn.module.css';
@@ -17,7 +18,7 @@ export default function SignIn() {
   return (
     <div className={styles.signInContainer}>
       <div className={styles.content}>
-        <div />
+        <BackgroundCover />
         <aside>
           <div className={styles.loginForm}>
             <Logo />
