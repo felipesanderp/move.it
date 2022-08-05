@@ -6,7 +6,7 @@ const options: NextAuthOptions = {
   providers: [
     GitHubProvider({
       clientId: "680425491c690c57dc98",
-      clientSecret: "f9201229839cbefdfd6feacfa98ac3f3674fcce6"
+      clientSecret: "f9201229839cbefdfd6feacfa98ac3f3674fcce6",
     }),
   ],
   theme: {
