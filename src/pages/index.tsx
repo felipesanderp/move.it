@@ -14,12 +14,6 @@ export default function SignIn() {
     signIn('github');
   }
 
-  function handleGoogleSignIn(event: FormEvent) {
-    event.preventDefault();
-
-    signIn('google');
-  }
-
   return (
     <div className={styles.signInContainer}>
       <div className={styles.content}>
@@ -29,16 +23,11 @@ export default function SignIn() {
             <Logo />
 
             <span>Bem-vindo</span>
-            <p>Faça login com seu E-mail, GitHub ou Google para começar</p>
+            <p>Faça login com seu GitHub para começar</p>
             <div className={styles.icons}>
-              <Envelope size={30} />
-
               <button type="button" onClick={handleGithubSignIn}>
                 <GithubLogo size={30} />
-              </button>
-
-              <button type="button" onClick={handleGoogleSignIn}>
-                <GoogleLogo size={30} />
+                Entrar
               </button>
             </div>
           </div>

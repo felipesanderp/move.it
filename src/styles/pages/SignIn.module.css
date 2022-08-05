@@ -45,7 +45,6 @@
 
 .icons {
   width: 100%;
-  max-width: 120px;
 
   display: flex;
   align-items: center;
@@ -53,23 +52,27 @@
 }
 
 .icons button {
-  border: 0;
+  border: 1px solid var(--white);
   background: var(--blue);
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
 
   color: var(--white);
 
-  height: 2.5rem;
-  width: 2.5rem;
+  height: 3rem;
+  width: 100%;
 
   border-radius: 2px;
   
-  transition: filter 0.2s;
+  transition: background-color 0.2s;
+}
+
+.icons button svg {
+  margin-right: 0.5rem;
 }
 
 .icons button:hover {
-  filter: brightness(0.8);
+  background: var(--blue-dark);
 }
