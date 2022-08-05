@@ -1,16 +1,20 @@
 .container {
+  width: 100%;
+  display: flex;
+}
+
+.content {
   height: 100vh;
-  max-width: 992px;
+  width: 70%;
+  max-width: 950px;
   margin: 0 auto;
-  padding: 2.5rem 2rem;
+  padding: 2.2rem 2rem;
 
   display: flex;
   flex-direction: column;
 }
 
 .container section {
-  flex: 1;
-
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6.25rem;
@@ -18,11 +22,11 @@
 }
 
 @media(max-width: 720px) {
-  .container section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    gap: 2.25rem;
+  .content {
+    width: 95%;
+    margin-bottom: 350px;
+  }
+  .content section {
+    grid-template-columns: 1fr;
   }
 }
