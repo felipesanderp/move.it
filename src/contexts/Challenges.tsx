@@ -73,7 +73,8 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
     new Audio('/notification.mp3').play();
 
     toast('Novo desafio!', {
-      icon: '😍'
+      icon: '😍',
+      position: 'top-center',
     })
   }
 
@@ -102,7 +103,7 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
 
   return (
     <>
-      <Toaster position='top-right' reverseOrder={false} />
+      <Toaster reverseOrder={false} />
 
       <ChallengesContext.Provider
         value={{
