@@ -1,5 +1,5 @@
 import Head from "../../node_modules/next/head";
-import { getSession, signOut } from 'next-auth/react'
+import { getSession } from 'next-auth/react'
 import { GetServerSideProps } from '../../node_modules/next/types/index'
 
 import { ChallengeBox } from "../components/ChallengeBox";
@@ -7,12 +7,12 @@ import { CompletedChallenges } from "../components/CompletedChallenges";
 import { Countdown } from "../components/Countdown";
 import { ExperienceBar } from "../components/ExperienceBar";
 import { Profile } from "../components/Profile";
+import { Sidebar } from "../components/Sidebar";
+
 import { ChallengesProvider } from "../contexts/Challenges";
 import { CountdownProvider } from "../contexts/CountdownContext";
 
 import styles from '../styles/pages/Home.module.css';
-import { FormEvent } from "react";
-
 interface HomeProps {
   level: number;
   currentExperience: number;
@@ -20,12 +20,6 @@ interface HomeProps {
 }
 
 export default function Dashboard({ level, currentExperience, challengesCompleted }: HomeProps) {
-
-  function handleSignOut(event: FormEvent) {
-    event.preventDefault();
-    signOut();
-  }
-
   return (
     <ChallengesProvider
       level={level}
@@ -37,24 +31,24 @@ export default function Dashboard({ level, currentExperience, challengesComplete
           <title>Início | move.it</title>
         </Head>
 
-        <ExperienceBar />
+        <Sidebar />
 
-        <CountdownProvider>
-          <section>
-            <div>
-              <Profile />
-              <CompletedChallenges />
-              <Countdown />
-            </div>
-            <div>
-              <ChallengeBox />
-            </div>
-          </section>
-        </CountdownProvider>
+        <div className={styles.content}>
+          <ExperienceBar />
 
-        <button type="button" onClick={handleSignOut}>
-          sair
-        </button>
+          <CountdownProvider>
+            <section>
+              <div>
+                <Profile />
+                <CompletedChallenges />
+                <Countdown />
+              </div>
+              <div>
+                <ChallengeBox />
+              </div>
+            </section>
+          </CountdownProvider>
+        </div>
       </div>
     </ChallengesProvider>
   )
