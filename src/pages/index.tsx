@@ -1,9 +1,19 @@
+import { GetServerSideProps } from 'next';
+import { getSession, signIn, } from 'next-auth/react'
+
 import { Envelope, GithubLogo, GoogleLogo } from 'phosphor-react'
+import { FormEvent } from 'react';
 import { Logo } from '../components/Logo';
 
 import styles from '../styles/pages/SignIn.module.css';
 
-export default function SigIn() {
+export default function SignIn() {
+  function handleSignIn(event: FormEvent) {
+    event.preventDefault();
+
+    signIn('github');
+  }
+
   return (
     <div className={styles.signInContainer}>
       <div className={styles.content}>
@@ -17,7 +27,7 @@ export default function SigIn() {
             <div className={styles.icons}>
               <Envelope size={30} />
 
-              <button>
+              <button type="button" onClick={handleSignIn}>
                 <GithubLogo size={30} />
               </button>
 
@@ -28,4 +38,21 @@ export default function SigIn() {
       </div>
     </div>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const session = await getSession({ ctx });
+
+  if (session) {
+    return {
+      redirect: {
+        destination: '/dashboard',
+        permanent: false,
+      }
+    }
+  }
+
+  return {
+    props: {}
+  }
 }

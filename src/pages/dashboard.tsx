@@ -1,4 +1,5 @@
 import Head from "../../node_modules/next/head";
+import { getSession, signOut, useSession } from 'next-auth/react'
 import { GetServerSideProps } from '../../node_modules/next/types/index'
 
 import { ChallengeBox } from "../components/ChallengeBox";
@@ -10,6 +11,7 @@ import { ChallengesProvider } from "../contexts/Challenges";
 import { CountdownProvider } from "../contexts/CountdownContext";
 
 import styles from '../styles/pages/Home.module.css';
+import { FormEvent } from "react";
 
 interface HomeProps {
   level: number;
@@ -17,7 +19,13 @@ interface HomeProps {
   challengesCompleted: number;
 }
 
-export default function Home({ level, currentExperience, challengesCompleted }: HomeProps) {
+export default function Dashboard({ level, currentExperience, challengesCompleted }: HomeProps) {
+
+  function handleSignOut(event: FormEvent) {
+    event.preventDefault();
+    signOut();
+  }
+
   return (
     <ChallengesProvider
       level={level}
@@ -43,6 +51,10 @@ export default function Home({ level, currentExperience, challengesCompleted }: 
             </div>
           </section>
         </CountdownProvider>
+
+        <button type="button" onClick={handleSignOut}>
+          sair
+        </button>
       </div>
     </ChallengesProvider>
   )
@@ -50,6 +62,16 @@ export default function Home({ level, currentExperience, challengesCompleted }: 
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { level, currentExperience, challengesCompleted } = ctx.req.cookies;
+  const session = await getSession({ ctx });
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      }
+    }
+  }
 
   return {
     props: {
