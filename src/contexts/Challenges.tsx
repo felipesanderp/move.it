@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 
 import challenges from '../../challenges.json';
 import { LevelUpModal } from '../components/LevelUpModal';
+import toast, { Toaster } from 'react-hot-toast';
 
 interface Challenge {
   type: string;
@@ -48,10 +49,6 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
     Cookies.set('challengesCompleted', String(challengesCompleted));
   }, [level, currentExperience, challengesCompleted])
 
-  useEffect(() => {
-    Notification.requestPermission();
-  }, [])
-
   function levelUp() {
     setLevel(level + 1);
     setIsLevelUpModalOpen(true);
@@ -75,11 +72,9 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
 
     new Audio('/notification.mp3').play();
 
-    if (Notification.permission === 'granted') {
-      new Notification('Novo desafio 🎉', {
-        body: `Valendo ${challenge.amount}xp!`
-      })
-    }
+    toast('Novo desafio!', {
+      icon: '😍'
+    })
   }
 
   function resetChallenge() {
@@ -106,24 +101,28 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
   }
 
   return (
-    <ChallengesContext.Provider
-      value={{
-        level,
-        currentExperience,
-        challengesCompleted,
-        startNewChallenge,
-        experienceToNextLevel,
-        levelUp,
-        activeChallenge,
-        resetChallenge,
-        completeChallenge,
-        closeLevelUpModal
-      }}
-    >
-      {children}
+    <>
+      <Toaster position='top-right' reverseOrder={false} />
 
-      {isLevelUpModalOpen && <LevelUpModal />}
-    </ChallengesContext.Provider>
+      <ChallengesContext.Provider
+        value={{
+          level,
+          currentExperience,
+          challengesCompleted,
+          startNewChallenge,
+          experienceToNextLevel,
+          levelUp,
+          activeChallenge,
+          resetChallenge,
+          completeChallenge,
+          closeLevelUpModal
+        }}
+      >
+        {children}
+
+        {isLevelUpModalOpen && <LevelUpModal />}
+      </ChallengesContext.Provider>
+    </>
   )
 }
 
